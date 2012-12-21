@@ -93,7 +93,7 @@ class block_ual_recent_news extends block_base {
             $this->content->text = $text;
 
             $this->content->footer = '<a href="'.$CFG->wwwroot.'/mod/forum/view.php?f='.$forum->id.'">'.
-                                      get_string('oldertopics', 'forum').'</a> ...';
+                                      get_string('viewmorenews', 'block_ual_recent_news').'</a> ...';
 
         /// If RSS is activated at site and forum level and this forum has rss defined, show link
             if (isset($CFG->enablerssfeeds) && isset($CFG->forum_enablerssfeeds) &&
