@@ -52,11 +52,11 @@ class block_ual_recent_news extends block_base {
             $groupmode    = groups_get_activity_groupmode($cm);
             $currentgroup = groups_get_activity_group($cm, true);
 
-
-            if (forum_user_can_post_discussion($forum, $currentgroup, $groupmode, $cm, $context)) {
+            // moved below
+            /*if (forum_user_can_post_discussion($forum, $currentgroup, $groupmode, $cm, $context)) {
                 $text .= '<div class="newlink"><a href="'.$CFG->wwwroot.'/mod/forum/post.php?forum='.$forum->id.'">'.
                           get_string('addanewtopic', 'forum').'</a></div><br>';
-            }
+            }*/
 
         /// Get all the recent discussions we're allowed to see
 
@@ -111,6 +111,11 @@ class block_ual_recent_news extends block_base {
                 }
 
                 $this->content->footer .= '<br />'.rss_get_link($context->id, $userid, 'mod_forum', $forum->id, $tooltiptext);
+            }
+            
+            if (forum_user_can_post_discussion($forum, $currentgroup, $groupmode, $cm, $context)) {
+                $this->content->footer .= '<div class="newlink"><a href="'.$CFG->wwwroot.'/mod/forum/post.php?forum='.$forum->id.'">'.
+                          get_string('addanewtopic', 'forum').'</a></div><br>';
             }
 
         }
