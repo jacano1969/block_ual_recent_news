@@ -55,7 +55,7 @@ class block_ual_recent_news extends block_base {
 
             if (forum_user_can_post_discussion($forum, $currentgroup, $groupmode, $cm, $context)) {
                 $text .= '<div class="newlink"><a href="'.$CFG->wwwroot.'/mod/forum/post.php?forum='.$forum->id.'">'.
-                          get_string('addanewtopic', 'forum').'</a>...</div>';
+                          get_string('addanewtopic', 'forum').'</a></div><br>';
             }
 
         /// Get all the recent discussions we're allowed to see
